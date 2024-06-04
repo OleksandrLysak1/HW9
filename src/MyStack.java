@@ -1,5 +1,3 @@
-package HW9;
-
 public class MyStack<T> {
     private Node<T> top;
     private int size;

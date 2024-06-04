@@ -1,5 +1,3 @@
-package HW9;
-
 public class MyLinkedList<T> {
     private Node<T> head;
     private Node<T> tail;

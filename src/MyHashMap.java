@@ -1,5 +1,3 @@
-package HW9;
-
 public class MyHashMap<K, V> {
     private Node<K, V>[] table;
     private int size;

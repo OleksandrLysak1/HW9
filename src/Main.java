@@ -1,8 +1,6 @@
-package HW9;
-
 public class Main {
     public static void main(String[] args) {
-        // Тестування MyArrayList
+
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
         myArrayList.add(1);
         myArrayList.add(2);
@@ -14,7 +12,6 @@ public class Main {
         myArrayList.clear();
         System.out.println("MyArrayList size after clear: " + myArrayList.size());
 
-        // Тестування MyLinkedList
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add("Hello");
         myLinkedList.add("World");
@@ -26,7 +23,6 @@ public class Main {
         myLinkedList.clear();
         System.out.println("MyLinkedList size after clear: " + myLinkedList.size());
 
-        // Тестування MyQueue
         MyQueue<Double> myQueue = new MyQueue<>();
         myQueue.add(1.1);
         myQueue.add(2.2);
@@ -38,7 +34,6 @@ public class Main {
         myQueue.clear();
         System.out.println("MyQueue size after clear: " + myQueue.size());
 
-        // Тестування MyStack
         MyStack<Character> myStack = new MyStack<>();
         myStack.push('A');
         myStack.push('B');
@@ -50,7 +45,6 @@ public class Main {
         myStack.clear();
         System.out.println("MyStack size after clear: " + myStack.size());
 
-        // Тестування MyHashMap
         MyHashMap<String, Integer> myHashMap = new MyHashMap<>();
         myHashMap.put("one", 1);
         myHashMap.put("two", 2);
