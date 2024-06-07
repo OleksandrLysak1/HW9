@@ -2,6 +2,8 @@ public class MyHashMap<K, V> {
     private Node<K, V>[] table;
     private int size;
     private static final int DEFAULT_CAPACITY = 16;
+    private V nullKeyValue;
+    private boolean nullKeyPresent = false;
 
     private static class Node<K, V> {
         final K key;
@@ -21,6 +23,15 @@ public class MyHashMap<K, V> {
     }
 
     public void put(K key, V value) {
+        if (key == null) {
+            if (!nullKeyPresent) {
+                size++;
+                nullKeyPresent = true;
+            }
+            nullKeyValue = value;
+            return;
+        }
+
         int index = indexFor(hash(key));
         Node<K, V> node = table[index];
         if (node == null) {
@@ -40,6 +51,17 @@ public class MyHashMap<K, V> {
     }
 
     public V remove(K key) {
+        if (key == null) {
+            if (nullKeyPresent) {
+                V oldValue = nullKeyValue;
+                nullKeyValue = null;
+                nullKeyPresent = false;
+                size--;
+                return oldValue;
+            }
+            return null;
+        }
+
         int index = indexFor(hash(key));
         Node<K, V> node = table[index];
         Node<K, V> previous = null;
@@ -62,6 +84,8 @@ public class MyHashMap<K, V> {
     public void clear() {
         table = new Node[DEFAULT_CAPACITY];
         size = 0;
+        nullKeyValue = null;
+        nullKeyPresent = false;
     }
 
     public int size() {
@@ -69,6 +93,10 @@ public class MyHashMap<K, V> {
     }
 
     public V get(K key) {
+        if (key == null) {
+            return nullKeyPresent ? nullKeyValue : null;
+        }
+
         int index = indexFor(hash(key));
         Node<K, V> node = table[index];
         while (node != null) {

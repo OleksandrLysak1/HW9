@@ -1,9 +1,9 @@
 public class MyArrayList<T> {
-    private Object[] elements;
+    private T[] elements;
     private int size;
 
     public MyArrayList() {
-        elements = new Object[10];
+        elements = (T[]) new Object[10];
         size = 0;
     }
 
@@ -15,7 +15,7 @@ public class MyArrayList<T> {
     }
 
     private void resize() {
-        Object[] newElements = new Object[elements.length * 2];
+        T[] newElements = (T[]) new Object[elements.length * 2];
         System.arraycopy(elements, 0, newElements, 0, elements.length);
         elements = newElements;
     }
@@ -44,7 +44,7 @@ public class MyArrayList<T> {
 
     public T get(int index) {
         checkIndex(index);
-        return (T) elements[index];
+        return elements[index];
     }
 
     private void checkIndex(int index) {
